@@ -72,12 +72,52 @@ class _ProductListScreenState extends State<ProductListScreen> {
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    subtitle: Text(
-                      '${item['price']} USD',
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment
+                          .start, // บังคับให้ข้อความชิดซ้ายทั้งหมด
+                      mainAxisSize: MainAxisSize
+                          .min, // ให้ขนาดของ Column พอดีกับตัวอักษร ไม่ขยายเกินไป
+                      children: [
+                        // บรรทัดที่ 1: ราคาเดิมของคุณ
+                        Text(
+                          '${item['price']} USD',
+                          style: const TextStyle(
+                            color: Colors.green,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ), // เพิ่มช่องว่างระหว่างบรรทัดนิดหน่อย
+                        // บรรทัดที่ 2: ข้อมูลที่ต้องการเพิ่ม (เช่น รายละเอียด หรือ สต็อกสินค้า)
+                        Text(
+                          item['category'] ?? 'ไม่มีรายละเอียดสินค้า',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.star,
+                              color: Colors.amber,
+                              size: 16,
+                            ), // ใส่ไอคอนดาวสีทองสวย ๆ
+                            const SizedBox(width: 4),
+                            Text(
+                              // 💡 ดึงค่า rate และ count จากชั้นในสุด
+                              '${item['rating']['rate']} (${item['rating']['count']} รีวิว)',
+                              style: const TextStyle(
+                                color: Colors.grey,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                     trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                     onTap: () {
