@@ -1,0 +1,31 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class Activity {
+  final String id;
+  final String title;
+  final String desc;
+  final List<dynamic> stdList;
+  final DateTime? dateFrom;
+
+  // Constructor
+  Activity({
+    required this.id,
+    required this.title,
+    required this.desc,
+    required this.stdList,
+    this.dateFrom,
+  });
+
+  // Factory constructor: แปลง DocumentSnapshot จาก Firebase ให้กลายเป็น Object
+  factory Activity.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data() as Map<String, dynamic>? ?? {};
+
+    return Activity(
+      id: doc.id,
+      title: data['title'] ?? 'Untitled',
+      desc: data['desc'] ?? '',
+      stdList: data['stdlist'] ?? [],
+      dateFrom: (data['datefrom'] as Timestamp?)?.toDate(),
+    );
+  }
+}
