@@ -15,5 +15,13 @@ class ActivityDBHelper {
   static Future<void> deleteActivity(String docId) async {
     await FirebaseFirestore.instance.collection("activity").doc(docId).delete();
   }
+
+  static Future<void> addActivity(Map<String, dynamic> data) async {
+    await FirebaseFirestore.instance.collection('activity').add(data);
+  }
+
+  static Future<void> updateActivity(String docId, Map<String, dynamic> data) async {
+    await FirebaseFirestore.instance.collection('activity').doc(docId).update(data);
+  }
 }//class
 

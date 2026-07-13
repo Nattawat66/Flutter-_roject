@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 // import 'ch4/Navigation/HomeScreenInput.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'ch4/Navigation/ExampleuiSTD.dart';
+import 'ch7/ui/SimpleBarChartDemosol.dart';
+import 'ch7/ui/SimpleLineChartDemosol.dart';
+import 'ch7/ui/SimplePieChartDemosol.dart';
+import 'ch7/ui/CombinedChartsPage.dart';
 import 'ch6/ui/ActivityListScreenAndSlidable.dart';
 
 void main() async {
@@ -40,6 +43,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
+      // home: const CombinedChartsPage(),
       home: const ActivityListScreen(),
     );
   }
