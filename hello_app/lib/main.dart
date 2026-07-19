@@ -9,6 +9,7 @@ import 'ch7/ui/SimpleLineChartDemosol.dart';
 import 'ch7/ui/SimplePieChartDemosol.dart';
 import 'ch7/ui/CombinedChartsPage.dart';
 import 'ch6/ui/ActivityListScreenAndSlidable.dart';
+import 'ch7/ui/UserDashboardPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,10 +42,9 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const CombinedChartsPage(),
-      home: const ActivityListScreen(),
+      home: const UserDashboardPage(),
     );
   }
 }
