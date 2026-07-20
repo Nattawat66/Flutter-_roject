@@ -10,6 +10,7 @@ import 'ch7/ui/SimplePieChartDemosol.dart';
 import 'ch7/ui/CombinedChartsPage.dart';
 import 'ch6/ui/ActivityListScreenAndSlidable.dart';
 import 'ch7/ui/UserDashboardPage.dart';
+import 'ch8/ui/EarthquakeDisplayScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
